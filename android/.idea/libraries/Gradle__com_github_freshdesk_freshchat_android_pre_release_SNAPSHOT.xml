@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.freshdesk:freshchat-android-pre-release-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/build/intermediates/exploded-aar/com.github.freshdesk/freshchat-android/pre-release-SNAPSHOT/jars/libs/freshchat.jar!/" />
+      <root url="file://$PROJECT_DIR$/build/intermediates/exploded-aar/com.github.freshdesk/freshchat-android/pre-release-SNAPSHOT/res" />
+      <root url="jar://$PROJECT_DIR$/build/intermediates/exploded-aar/com.github.freshdesk/freshchat-android/pre-release-SNAPSHOT/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
