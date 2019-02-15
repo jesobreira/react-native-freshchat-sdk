@@ -195,10 +195,8 @@ module.exports = {
      *
      * @since 0.4.5
      */
-    dismissFreshchatViews: function() {
-        if (isIos()) {
-            RNFreshchatSdk.dismissFreshchatViews();
-        }
+    dismissFreshchatViews: function () {
+        RNFreshchatSdk.dismissFreshchatViews();
     },
 
     setNotificationConfig: function(freshchatNotificationConfig) {

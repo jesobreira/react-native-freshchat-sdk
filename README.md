@@ -3,7 +3,7 @@
 ## Integration Steps
 
 1. Extract `react-native-freshchat-sdk` and place it inside `node_module` folder in your project
-2. Add `"react-native-freshchat-sdk": "^0.5.6"` under `dependencies` in project `package.json`
+2. Add `"react-native-freshchat-sdk": "^0.5.7"` under `dependencies` in project `package.json`
 3. Run `react-native link` on you project root directory
 
 ### iOS setup steps
@@ -151,7 +151,7 @@ Add `maven { url "https://jitpack.io” }` to you project level build.gradle as 
      freshchatMessage.message = "text send message";
      Freshchat.sendMessage(freshchatMessage);
 
-### Dismiss Freshchat Views (iOS Only)
+### Dismiss Freshchat Views
 
      Freshchat.dismissFreshchatViews();
 

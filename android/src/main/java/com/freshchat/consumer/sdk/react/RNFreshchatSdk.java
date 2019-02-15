@@ -457,6 +457,12 @@ public class RNFreshchatSdk extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
+    public void dismissFreshchatViews() {
+        Intent intent = new Intent("com.freshchat.consumer.sdk.actions.DismissFreshchatScreens");
+        LocalBroadcastManager.getInstance(getContext().getApplicationContext()).sendBroadcast(intent);
+    }
+
+    @ReactMethod
     public void setNotificationConfig(@NonNull ReadableMap readableMap) {
         try {
             HashMap<String, Object> params = readableMap.toHashMap();

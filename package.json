@@ -1,6 +1,6 @@
 {
     "name": "react-native-freshchat-sdk",
-    "version": "0.5.6",
+    "version": "0.5.7",
     "description": "A React Native module that allows you to use the native Freshchat SDK",
     "main": "index.js",
     "scripts": {
