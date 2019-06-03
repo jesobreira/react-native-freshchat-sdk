@@ -466,7 +466,7 @@ RCT_EXPORT_METHOD(registerForOpeningLink:(BOOL)shouldRegister)
         [Freshchat sharedInstance].customLinkHandler = ^BOOL(NSURL * url) {
             NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
                         [dic setValue:url.description forKey:@"url"];
-                        [self sendEventWithName:FRESHCHAT_OPEN_LINKS body:@[dic]];
+                        [self sendEventWithName:FRESHCHAT_OPEN_LINKS body:dic];
                         return YES;
         };
     } else {

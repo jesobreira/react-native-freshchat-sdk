@@ -1,5 +1,38 @@
 # Freshchat React Native SDK
 
+## 1.1.2 (2019-5-27)
+
+### Enhancement :
+* Improvements in keychain store.
+
+### Bug Fix
+* Stopped message list from auto scrolling to bottom
+* Improvements in JWT timer timeout logic
+
+## 1.1.1 (2019-5-14)
+
+### Bug Fix
+* Graceful handling of non freshchat notification payload.
+
+## 1.1.0 (2019-5-10)
+
+### Enhancement
+* Improvements in keychain store.
+
+### Bug Fixes
+* Improved user experience during API failures
+* Open SDK screens in same task irrespective of the context passed
+
+## 1.0.2 (2019-5-3)
+
+### Enhancement
+* Updated README with latest documentation
+
+## 0.5.8 (2019-3-7)
+
+### Enhancement
+* Improvements in logic to load new messages for conversations
+
 ## 0.5.7 (2019-2-15)
 
 ### Enhancement

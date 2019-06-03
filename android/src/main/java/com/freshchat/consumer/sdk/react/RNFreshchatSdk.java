@@ -101,21 +101,25 @@ public class RNFreshchatSdk extends ReactContextBaseJavaModule {
         while (iterator.hasNextKey()) {
             String key = iterator.nextKey();
             ReadableType type = readableMap.getType(key);
-            switch (type) {
-                case Null:
-                    bundle.putString(key, null);
-                    break;
-                case Boolean:
-                    bundle.putBoolean(key, readableMap.getBoolean(key));
-                    break;
-                case Number:
-                    bundle.putDouble(key, readableMap.getDouble(key));
-                    break;
-                case String:
-                    bundle.putString(key, readableMap.getString(key));
-                    break;
-                default:
-                    bundle.putString(key, readableMap.getString(key));
+            try {
+                switch (type) {
+                    case Null:
+                        bundle.putString(key, null);
+                        break;
+                    case Boolean:
+                        bundle.putBoolean(key, readableMap.getBoolean(key));
+                        break;
+                    case Number:
+                        bundle.putDouble(key, readableMap.getDouble(key));
+                        break;
+                    case String:
+                        bundle.putString(key, readableMap.getString(key));
+                        break;
+                    default:
+                        bundle.putString(key, readableMap.getString(key));
+                }
+            } catch (Exception e) {
+                Log.w(LOG_TAG, e.toString());
             }
         }
         return bundle;
