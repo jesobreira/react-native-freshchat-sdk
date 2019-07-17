@@ -6,8 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
@@ -54,7 +52,7 @@ public class RNFreshchatSdk extends ReactContextBaseJavaModule {
     private final FreshchatSDKBroadcastReceiver userActionsReceiver;
     private final FreshchatSDKBroadcastReceiver notificationClickReceiver;
 
-    public RNFreshchatSdk(@NonNull ReactApplicationContext reactcontext) {
+    public RNFreshchatSdk(ReactApplicationContext reactcontext) {
         super(reactcontext);
 
         restoreIdUpdatesReceiver = new FreshchatSDKBroadcastReceiver(reactcontext, Freshchat.FRESHCHAT_USER_RESTORE_ID_GENERATED);
@@ -91,7 +89,7 @@ public class RNFreshchatSdk extends ReactContextBaseJavaModule {
         return "RNFreshchatSdk";
     }
 
-    public Bundle jsonToBundle(@NonNull ReadableMap readableMap) {
+    public Bundle jsonToBundle(ReadableMap readableMap) {
         Bundle bundle = new Bundle();
         ReadableMapKeySetIterator iterator = readableMap.keySetIterator();
         HashMap<String, Object> params = readableMap.toHashMap();
@@ -123,7 +121,7 @@ public class RNFreshchatSdk extends ReactContextBaseJavaModule {
 
 
     @ReactMethod
-    public void init(@NonNull ReadableMap initArgs) {
+    public void init(ReadableMap initArgs) {
         try {
 
             if (initArgs == null || initArgs.toHashMap().size() == 0) {
@@ -168,7 +166,7 @@ public class RNFreshchatSdk extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void showFAQsWithOptions(@NonNull ReadableMap faqArgs) {
+    public void showFAQsWithOptions(ReadableMap faqArgs) {
         try {
 
             if (faqArgs == null) {
@@ -231,7 +229,7 @@ public class RNFreshchatSdk extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void showConversationsWithOptions(@NonNull ReadableMap conversationArgs) {
+    public void showConversationsWithOptions(ReadableMap conversationArgs) {
         ConversationOptions conversationOptions = new ConversationOptions();
         List<String> tagsList = new ArrayList<String>();
         if (conversationArgs.hasKey("tags")) {
@@ -257,7 +255,7 @@ public class RNFreshchatSdk extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void setUser(@NonNull ReadableMap args, @Nullable final Callback errorCallback) {
+    public void setUser(ReadableMap args, final Callback errorCallback) {
 
         if (args == null || args.toHashMap().size() == 0) {
             Log.e(LOG_TAG, "Please provide parameters to setUser");
@@ -281,7 +279,7 @@ public class RNFreshchatSdk extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void setUserWithIdToken(@NonNull String jwt, @Nullable final Callback errorCallback) {
+    public void setUserWithIdToken(String jwt, final Callback errorCallback) {
         try {
             Freshchat.getInstance(getContext()).setUser(jwt);
         } catch (Exception e) {
@@ -291,7 +289,7 @@ public class RNFreshchatSdk extends ReactContextBaseJavaModule {
 
 
     @ReactMethod
-    public void setUserProperties(@NonNull ReadableMap readableMap, @Nullable final Callback errorCallback) {
+    public void setUserProperties(ReadableMap readableMap, final Callback errorCallback) {
 
         if (readableMap == null) {
             Log.e(LOG_TAG, "Please provide user properties to update the user");
@@ -317,7 +315,7 @@ public class RNFreshchatSdk extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void getUnreadCountAsync(@NonNull final Callback callback) {
+    public void getUnreadCountAsync(final Callback callback) {
         Freshchat.getInstance(getContext()).getUnreadCountAsync(new UnreadCountCallback() {
             @Override
             public void onResult(FreshchatCallbackStatus freshchatCallbackStatus, int count) {
@@ -332,7 +330,7 @@ public class RNFreshchatSdk extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void getUnreadCountAsyncForTags(@NonNull ReadableMap readableMap, @NonNull final Callback callback) {
+    public void getUnreadCountAsyncForTags(ReadableMap readableMap, final Callback callback) {
 
         List<String> tagsList = new ArrayList<String>();
 
@@ -364,13 +362,13 @@ public class RNFreshchatSdk extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void getSDKVersionCode(@NonNull Callback successCallback) {
+    public void getSDKVersionCode(Callback successCallback) {
         int versionNumber = Freshchat.getInstance(getContext()).getSDKVersionCode();
         successCallback.invoke(versionNumber);
     }
 
     @ReactMethod
-    public void getUser(@NonNull Callback userCallback) {
+    public void getUser(Callback userCallback) {
         FreshchatUser freshchatUser = Freshchat.getInstance(getContext()).getUser();
 
         WritableMap map = new WritableNativeMap();
@@ -389,7 +387,7 @@ public class RNFreshchatSdk extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void isFreshchatNotification(@NonNull ReadableMap readableMap, @NonNull Callback callback) {
+    public void isFreshchatNotification(ReadableMap readableMap, Callback callback) {
         HashMap<String, Object> params = readableMap.toHashMap();
         if (params.size() == 0) {
             callback.invoke(0);
@@ -404,7 +402,7 @@ public class RNFreshchatSdk extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void handlePushNotification(@NonNull ReadableMap readableMap) {
+    public void handlePushNotification(ReadableMap readableMap) {
 
         if (readableMap == null || readableMap.toHashMap().size() == 0) {
             Log.e(LOG_TAG, "Please provide values to handlePushNotification");
@@ -417,7 +415,7 @@ public class RNFreshchatSdk extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void identifyUser(@NonNull String externalId, @NonNull String restoreId, @Nullable final Callback errorCallback) {
+    public void identifyUser(String externalId, String restoreId, final Callback errorCallback) {
         try {
             Freshchat.getInstance(getContext()).identifyUser(externalId, restoreId);
         } catch (Exception e) {
@@ -428,7 +426,7 @@ public class RNFreshchatSdk extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void restoreUser(@NonNull String jwt, @Nullable final Callback errorCallback) {
+    public void restoreUser(String jwt, final Callback errorCallback) {
         try {
             Freshchat.getInstance(getContext()).restoreUser(jwt);
         } catch (Exception e) {
@@ -437,7 +435,7 @@ public class RNFreshchatSdk extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void sendMessage(@NonNull ReadableMap readableMap) {
+    public void sendMessage(ReadableMap readableMap) {
         HashMap<String, Object> params = readableMap.toHashMap();
         if (params.size() < 2) {
             Log.e(LOG_TAG, "Please provide valid field to sendMessage");
@@ -452,7 +450,7 @@ public class RNFreshchatSdk extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void setPushRegistrationToken(@NonNull String token) {
+    public void setPushRegistrationToken(String token) {
         Freshchat.getInstance(getContext()).setPushRegistrationToken(token);
     }
 
@@ -463,7 +461,7 @@ public class RNFreshchatSdk extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void setNotificationConfig(@NonNull ReadableMap readableMap) {
+    public void setNotificationConfig(ReadableMap readableMap) {
         try {
             HashMap<String, Object> params = readableMap.toHashMap();
             FreshchatNotificationConfig notificationConfig = new FreshchatNotificationConfig();
@@ -596,7 +594,7 @@ public class RNFreshchatSdk extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void getUserIdTokenStatus(@NonNull final Callback callback) {
+    public void getUserIdTokenStatus(final Callback callback) {
         JwtTokenStatus tokenStatus = Freshchat.getInstance(getContext()).getUserIdTokenStatus();
 
         WritableMap map = new WritableNativeMap();
@@ -605,24 +603,24 @@ public class RNFreshchatSdk extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void getFreshchatUserId(@NonNull final Callback callback) {
+    public void getFreshchatUserId(final Callback callback) {
         String alias = Freshchat.getInstance(getContext()).getFreshchatUserId();
         callback.invoke(alias);
     }
 
-    private void registerBroadcastReceiver(@NonNull FreshchatSDKBroadcastReceiver receiver, @NonNull String action) {
+    private void registerBroadcastReceiver(FreshchatSDKBroadcastReceiver receiver, String action) {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(action);
         LocalBroadcastManager.getInstance(getContext()).registerReceiver(receiver, intentFilter);
     }
 
-    private void unregisterBroadcastReceiver(@NonNull FreshchatSDKBroadcastReceiver receiver) {
+    private void unregisterBroadcastReceiver(FreshchatSDKBroadcastReceiver receiver) {
         LocalBroadcastManager.getInstance(getContext()).unregisterReceiver(receiver);
     }
 
     private LinkHandler linkHandler = new LinkHandler() {
         @Override
-        public boolean handleLink(@NonNull String url, @Nullable Bundle bundle) {
+        public boolean handleLink(String url, Bundle bundle) {
             WritableMap map = new WritableNativeMap();
             map.putString("url", url);
             emitEvent(getReactApplicationContext(), ACTION_OPEN_LINKS, map);
@@ -635,13 +633,13 @@ public class RNFreshchatSdk extends ReactContextBaseJavaModule {
         private final ReactApplicationContext reactApplicationContext;
         private final String eventName;
 
-        public FreshchatSDKBroadcastReceiver(@NonNull ReactApplicationContext reactApplicationContext, @NonNull String eventName) {
+        public FreshchatSDKBroadcastReceiver(ReactApplicationContext reactApplicationContext, String eventName) {
             this.reactApplicationContext = reactApplicationContext;
             this.eventName = eventName;
         }
 
         @Override
-        public void onReceive(@NonNull Context context, @NonNull Intent intent) {
+        public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
             Log.i(LOG_TAG, "Broadcast triggered: " + action);
 
@@ -663,7 +661,7 @@ public class RNFreshchatSdk extends ReactContextBaseJavaModule {
         }
     }
 
-    private void emitEvent(@NonNull ReactApplicationContext reactApplicationContext, @NonNull String eventName, @Nullable WritableMap params) {
+    private void emitEvent(ReactApplicationContext reactApplicationContext, String eventName, WritableMap params) {
         if (params == null) {
             params = new WritableNativeMap();
         }
@@ -672,8 +670,7 @@ public class RNFreshchatSdk extends ReactContextBaseJavaModule {
                 .emit(eventName, params);
     }
 
-    @NonNull
-    private void postError ( @Nullable final Callback errorCallback, @NonNull String module, @NonNull String errorMessage) {
+    private void postError (final Callback errorCallback, String module, String errorMessage) {
         if (errorCallback != null) {
             WritableMap map = new WritableNativeMap();
             map.putString("module", module);
