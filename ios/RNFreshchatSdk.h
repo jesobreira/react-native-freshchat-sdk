@@ -6,11 +6,6 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#if __has_include("FreshchatSDK.h")
-#import "FreshchatSDK.h"
-#else
-#import "FreshchatSDK/FreshchatSDK.h"
-#endif
 #import <React/RCTEventEmitter.h>
 #import <React/RCTBridgeModule.h>
 #define FRESHCHAT_USER_INTERACTED @"com.freshchat.consumer.sdk.reactnative.actions.UserInteraction"
