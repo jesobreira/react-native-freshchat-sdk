@@ -13,7 +13,7 @@ Note: this is a fork with collected and implemented fixes. It is NOT the officia
     ```
     target 'ProjectName' do
     
-        pod 'FreshchatSDK', :git => 'https://github.com/freshdesk/freshchat-ios', :branch => 'canary'
+        pod 'FreshchatSDK'
     
     end
     ```
