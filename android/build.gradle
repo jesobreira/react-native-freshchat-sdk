@@ -5,10 +5,11 @@ android {
     buildToolsVersion "26.0.2"
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
     }
 }
 
@@ -36,6 +37,8 @@ buildscript {
 }
 
 dependencies {
+    implementation "androidx.legacy:legacy-support-core-utils:1.0.0"
+    implementation 'androidx.multidex:multidex:2.0.1'
     compile "com.facebook.react:react-native:+"
     compile 'com.google.android.gms:play-services-gcm:11.+'
     compile 'com.github.freshdesk:freshchat-android:2.4.0'

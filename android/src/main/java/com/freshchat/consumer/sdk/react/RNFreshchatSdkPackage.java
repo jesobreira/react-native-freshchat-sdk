@@ -1,7 +1,5 @@
 package com.freshchat.consumer.sdk.react;
 
-import android.support.annotation.NonNull;
-
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;
 import com.facebook.react.bridge.NativeModule;
@@ -19,12 +17,12 @@ public class RNFreshchatSdkPackage implements ReactPackage {
     }
 
     @Override
-    public List<ViewManager> createViewManagers(@NonNull ReactApplicationContext reactContext) {
+    public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
         return Collections.emptyList();
     }
 
     @Override
-    public List<NativeModule> createNativeModules(@NonNull ReactApplicationContext reactContext) {
+    public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
 
         List<NativeModule> modules = new ArrayList<>();
         modules.add(new RNFreshchatSdk(reactContext));
