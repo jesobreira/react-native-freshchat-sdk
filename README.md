@@ -1,10 +1,10 @@
 # README.md
 
+Note: this is a fork with collected and implemented fixes. It is NOT the official package nor it's granted to work in  your environment. Use under your caution and risk.
+
 ## Integration Steps
 
-1. Extract `react-native-freshchat-sdk` and place it inside `node_module` folder in your project
-2. Add `"react-native-freshchat-sdk": "^0.5.7"` under `dependencies` in project `package.json`
-3. Run `react-native link` on you project root directory
+`npm i github:jesobreira/react-native-freshchat-sdk`
 
 ### iOS setup steps
 
@@ -13,7 +13,7 @@
     ```
     target 'ProjectName' do
     
-        pod 'FreshchatSDK', :path=> '../node_modules/react-native-freshchat-sdk/ios/FreshchatSDK.podspec'
+        pod 'FreshchatSDK', :git => 'https://github.com/freshdesk/freshchat-ios', :branch => 'canary'
     
     end
     ```

@@ -1,5 +1,71 @@
 # Freshchat React Native SDK
 
+## 2.3.0 (2020-02-03)
+
+### Feature
+* Add user events from your app to Freshchat Timeline to give your agents context on user's journey and problems.
+
+## 2.2.0 (2019-11-18)
+
+### Enhancement
+* Ability to search through FAQs filtered by tags.
+* Increased CSAT message view maximum height to 4 lines.
+
+## 2.1.1 (2019-10-10)
+
+### Bug Fix
+* Handled iOS 13 push tokens.
+
+## 2.1.0 (2019-9-27)
+
+### Enhancement
+* Added Freshchat events
+* Support for showing proactive reply suggestions
+
+### Breaking Change
+* Freshchat.FRESHCHAT_EVENTS event name variable user_action is changed to event_name.
+
+### Bug Fix
+* Resolved iOS variable name conflict with react-native-navigation library.
+
+## 2.0.0 (2019-7-26)
+
+### Enhancement
+* Comapatible with RN v0.60 and above.
+
+## 1.1.2 (2019-5-27)
+
+### Enhancement :
+* Improvements in keychain store.
+
+### Bug Fix
+* Stopped message list from auto scrolling to bottom
+* Improvements in JWT timer timeout logic
+
+## 1.1.1 (2019-5-14)
+
+### Bug Fix
+* Graceful handling of non freshchat notification payload.
+
+## 1.1.0 (2019-5-10)
+
+### Enhancement
+* Improvements in keychain store.
+
+### Bug Fixes
+* Improved user experience during API failures
+* Open SDK screens in same task irrespective of the context passed
+
+## 1.0.2 (2019-5-3)
+
+### Enhancement
+* Updated README with latest documentation
+
+## 0.5.8 (2019-3-7)
+
+### Enhancement
+* Improvements in logic to load new messages for conversations
+
 ## 0.5.7 (2019-2-15)
 
 ### Enhancement
